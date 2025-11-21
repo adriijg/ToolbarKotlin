@@ -1,17 +1,15 @@
 package es.tierno.toolbar
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class OptionsActivity : AppCompatActivity() {
+class OptionsActivity : BaseActivity() {
     var txtSelect = "Has elegido %s"
     val options = arrayOf("Editar perfil",
         "Cambiar contraseña",
@@ -42,7 +40,7 @@ class OptionsActivity : AppCompatActivity() {
         // RecyclerView Lógica
 
         val data = ArrayList<ItemViewModel>()
-        for (i in options.indices) {
+        for (i in options.indices) {4444444444
             val option:String = (options[i])
 
             data.add(ItemViewModel(option))
@@ -81,22 +79,5 @@ class OptionsActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
-    }
-
-    fun navegar() {
-        Toast.makeText(this@OptionsActivity, "Pronto podrás navegar", Toast.LENGTH_SHORT).show()
-    }
-
-    fun opciones() {
-        val intent = Intent(this, OptionsActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun salir() {
-        if (this !is MainActivity) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 }
